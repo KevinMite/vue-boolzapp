@@ -106,3 +106,13 @@
     border-radius: 50%;
 
 }
+
+#chat-body{
+    height: calc(100% - 70px - 70px);
+    background-image: url(../../assets/img/mine.jpg);
+    background-size: 20%;
+}
+
+#chat-message{
+    height: 70px;
+}
