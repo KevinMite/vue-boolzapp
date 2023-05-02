@@ -135,5 +135,22 @@
 
 #chat-body .sent,
 #chat-body .received{
-    padding: 15px;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 2px;
+}
+
+#chat-body .sent p,
+#chat-body .received p{
+    margin: 0;
+}
+
+#chat-message{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#chat-message input{
+    width: 90%;
 }
