@@ -18,7 +18,7 @@
                 <div class="header-chat">
                     <div class="avatar">
                         <img src="./assets/img/avatar_1.jpg" alt="">
-                        <span>Nome e Cognome</span>
+                        <span>Kevin M.</span>
 
                     </div>
                     <div class="avatar-icons">
@@ -47,7 +47,8 @@
                 <div id="chat-contacts">
                     <div 
                         v-for=" (elem, index) in contacts "  
-                        :key="index">
+                        :key="index"
+                        @click="recuperaId(index)">
                         <img :src="elem.avatar" :alt="elem.name">
                         <span>{{ elem.name }}</span>
                     </div>
@@ -58,8 +59,8 @@
             <div id="chat-dx">
                 <div class="header-chat">
                     <div class="avatar">
-                        <img src="./assets/img/avatar_1.jpg" alt="">
-                        <span>Michele</span>
+                        <img :src="contacts[indiceDinamico].avatar" :alt="contacts[indiceDinamico].name">
+                        <span>{{ contacts[indiceDinamico].name }}</span>
 
                     </div>
                     <div class="avatar-icons">
@@ -71,7 +72,11 @@
                 </div>
 
                 <div id="chat-body">
-                    <div class="sent">
+                    <div :class="elem.status == 'sent' ? 'sent' : 'received'" 
+                        v-for=" (elem, index) in contacts[indiceDinamico].messages">
+                        <p>{{ elem.message }}</p>
+                    </div>
+                    <!-- <div class="sent">
                         <p>Hai portato a spasso il cane?</p>
                     </div>
                     <div class="sent">
@@ -79,7 +84,7 @@
                     </div>
                     <div class="received">
                         <p>Tutto fatto!</p>
-                    </div>
+                    </div> -->
                 </div>
                 <div id="chat-message">
                     <i class="far fa-smile"></i>

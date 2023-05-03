@@ -165,12 +165,17 @@ createApp({
                         }
                     ],
                 }
-            ]
+            ],
+            indiceDinamico: 0
         }
     },
     mounted(){
     },
     methods: {
-
+        recuperaId(i){
+            console.log(`indice elemento cliccato: ${i}`)
+            this.indiceDinamico = i
+            
+        }
     }
 }).mount('#app')
