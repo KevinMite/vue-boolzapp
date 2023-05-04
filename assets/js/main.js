@@ -166,7 +166,8 @@ createApp({
                     ],
                 }
             ],
-            indiceDinamico: 0
+            indiceDinamico: 0,
+            testoMessaggio: ''
         }
     },
     mounted(){
@@ -176,6 +177,25 @@ createApp({
             console.log(`indice elemento cliccato: ${i}`)
             this.indiceDinamico = i
             
+        },
+
+        scriviMessaggio(){
+
+            this.contacts[indiceDinamico].messages.push ({
+                date:'10/01/2023 15:51:00',
+                message: this.scriviMessaggio,
+                status: 'sent'
+            })
+
+            this.scriviMessaggio = ''
+
+            setTimeout( () => {
+                this.contacts[ this.indiceDinamico ].messages.push({
+                    date:'10/01/2023 20:51:00',
+                    message: 'ok',
+                    status: 'received'
+                })
+            }, 2000)
         }
     }
-}).mount('#app')
+}).mount('#app')=''
