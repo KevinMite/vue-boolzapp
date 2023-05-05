@@ -178,24 +178,27 @@ createApp({
             this.indiceDinamico = i
             
         },
-
         scriviMessaggio(){
 
-            this.contacts[indiceDinamico].messages.push ({
+            this.contacts[indiceDinamico].messages.push ( {
                 date:'10/01/2023 15:51:00',
-                message: this.scriviMessaggio,
+                message: this.testoMessaggio,
                 status: 'sent'
             })
 
             this.scriviMessaggio = ''
 
-            setTimeout( () => {
+            setTimeout( ()=>{
                 this.contacts[ this.indiceDinamico ].messages.push({
                     date:'10/01/2023 20:51:00',
-                    message: 'ok',
+                    message: 'ok!',
                     status: 'received'
                 })
-            }, 2000)
+            }, 2000 )
+        },
+        estraiData(i){
+            const arrayDate = this.contacts[ this.indiceDinamico ].messages[i].date.split(' ')
+            return arrayDate [1]
         }
     }
-}).mount('#app')=''
+}).mount('#app')
