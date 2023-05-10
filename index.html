@@ -14,7 +14,7 @@
     
     <div id="app" class="gradiente webapp">
         <div id="chat">
-            <div id="chat-sx">
+            <div id="chat-sx ">
                 <div class="header-chat">
                     <div class="avatar">
                         <img src="./assets/img/avatar_1.jpg" alt="">
@@ -38,7 +38,10 @@
 
                 <div id="chat-search">
                     <div class="position-relative">
-                        <input type="text">
+                        <input
+                            type="text" 
+                            v-model="nomeContattoRicerca" 
+                            @keyUp="ricercaUtente">
                         <i class="fas fa-search position-absolute"></i>
                     </div>
 
@@ -48,7 +51,9 @@
                     <div 
                         v-for=" (elem, index) in contacts "  
                         :key="index"
-                        @click="recuperaId(index)">
+                        @click="recuperaId(index)"
+                        v-show="elem.visible"
+                        >
                         <img :src="elem.avatar" :alt="elem.name">
                         <span>{{ elem.name }}</span>
                     </div>
@@ -72,7 +77,8 @@
                 </div>
 
                 <div id="chat-body">
-                    <div :class="elem.status == 'sent' ? 'sent' : 'received'" 
+                    <div 
+                        :class="elem.status == 'sent' ? 'sent' : 'received'" 
                         v-for=" (elem, index) in contacts[indiceDinamico].messages">
                         <p>{{ elem.message }}</p>
                         <span> {{ estraiData(index) }} </span>

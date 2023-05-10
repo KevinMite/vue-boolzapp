@@ -167,7 +167,8 @@ createApp({
                 }
             ],
             indiceDinamico: 0,
-            testoMessaggio: ''
+            testoMessaggio: '',
+            nomeContattoRicerca: ''
         }
     },
     mounted(){
@@ -199,6 +200,20 @@ createApp({
         estraiData(i){
             const arrayDate = this.contacts[ this.indiceDinamico ].messages[i].date.split(' ')
             return arrayDate [1]
+        },
+
+
+        ricercaUtente() {
+            this.contacts.forEach( (elem) =>{
+                if( elem.name.toLowerCase().includes( this.nomeContattoRicerca.toLowerCase() ) ){
+                    elem.visible = true
+                } else {
+                    elem.visible = false
+                }
+            } )
         }
+
+
     }
+
 }).mount('#app')
